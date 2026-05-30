@@ -1,0 +1,35 @@
+[project]
+name = "nemotron-detector"
+version = "0.1.0"
+description = "Windows-compatible detector-only wrapper for Nemotron OCR2 word and line detection"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Bin-2" }
+]
+dependencies = [
+    "numpy",
+    "pillow",
+    "torch",
+    "torchvision",
+    "safetensors"
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "build", "twine"]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+nemotron_detector = [
+    "models/word/*.json",
+    "models/word/*.safetensors",
+    "models/line/*.json",
+    "models/line/*.safetensors"
+]
